@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        {% load static %}
+
+<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>demostración</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppFinal/startbootstrap-blog-home-gh-pages/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href='{% url "Inicio" %}'>Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href='{% url "About" %}'>About</a></li>
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href='{% url "blogLista" %}'>Inmuebles</a></li>
+                <li class="nav-item"><a class="nav-link" href='{% url "crearBlog" %}'>Crear anuncio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Perfil</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                
+                
+
+                {% else %}
+
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Register' %}">Registrarse</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Login' %}">Iniciar sesión</a></li>
+
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1>Andrés Herrero</h1>
+
+Mi nombre es Andrés. Tengo 20 años, soy estudiante de Ciencia de Datos en la Facultad de Ciencias Exactas de la Universidad de Buenos Aires y realicé un curso de Python en CoderHouse, en el cual aprendí las bases del backend, el uso del framework Django y las bases de datos SQLite3. Mi objetivo es mejorar mis habilidades de programación al mismo tiempo que me desarrollo profesionalmente, así que hice esta página de presentación para mostrar algunas cosas simples que puedo hacer.
+
+<a href="https://www.linkedin.com/in/andr%C3%A9s-herrero-6a3353243/">Mi Linkedin</a>.
+</p>
+ 

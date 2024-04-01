@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        {% load static %}
+
+<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>demostración</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppFinal/startbootstrap-blog-home-gh-pages/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href='{% url "Inicio" %}'>Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href='{% url "About" %}'>About</a></li>
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href='{% url "blogLista" %}'>Inmuebles</a></li>
+                <li class="nav-item"><a class="nav-link" href='{% url "crearBlog" %}'>Crear anuncio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Perfil</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                
+                
+
+                {% else %}
+
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Register' %}">Registrarse</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Login' %}">Iniciar sesión</a></li>
+
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1>Generador de contraseñas aleatorias</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="length">Longitud:</label><br>
+        <input type="radio" id="length_8" name="length" value="8" checked>
+        <label for="length_8">8</label>
+        <input type="radio" id="length_16" name="length" value="16">
+        <label for="length_16">16</label><br><br>
+
+        <input type="checkbox" id="mayus" name="mayus">
+        <label for="mayus">Incluir mayúsculas</label><br>
+
+        <input type="checkbox" id="numeros" name="numeros">
+        <label for="numeros">Incluir números</label><br>
+
+        <input type="checkbox" id="simbolos" name="simbolos">
+        <label for="simbolos">Incluir símbolos</label><br><br>
+
+        <button type="submit">Generar contraseña</button>
+    </form>
+
+    {% if contraseña %}
+    <h2>Tu contraseña:</h2>
+    <textarea rows="4" cols="50">{{ contraseña }}</textarea>
+    {% endif %}
+</body>
+
+ 
