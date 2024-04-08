@@ -29,7 +29,7 @@ import string
 
 
 def inicio(request):
-    return render(request, "AppFinal/inicio.html")
+    return render(request, "AppFinal/index.html")
 
 def pages(request):
     return render(request, "AppFinal/pages.html")
@@ -59,13 +59,13 @@ def login_request(request):
             if user is not None:
                 login(request, user)
 
-                return render(request, "AppFinal/inicio.html", {"mensaje":f"Bienvenido {usuario}"})
+                return render(request, "AppFinal/index.html", {"mensaje":f"Bienvenido {usuario}"})
             else:
-                return render(request, "AppFinal/inicio.html", {"mensaje":"Datos incorrectos"})
+                return render(request, "AppFinal/index.html", {"mensaje":"Datos incorrectos"})
            
         else:
 
-            return render(request, "AppFinal/inicio.html", {"mensaje":"Formulario erroneo"})
+            return render(request, "AppFinal/index.html", {"mensaje":"Formulario erroneo"})
 
     form = AuthenticationForm()
 
@@ -81,7 +81,7 @@ def register(request):
 
                   username = form.cleaned_data['username']
                   form.save()
-                  return render(request,"AppFinal/inicio.html" ,  {"mensaje":"Usuario Creado :)"})
+                  return render(request,"AppFinal/index.html" ,  {"mensaje":"Usuario Creado :)"})
 
       else:
             #form = UserCreationForm()       
@@ -141,7 +141,7 @@ def inicio(request):
     context = {
         'blogs': blogs,
     }
-    return render(request, 'AppFinal/inicio.html', context)
+    return render(request, 'AppFinal/index.html', context)
 
 def seccionLista(request):
     blogs = Blog.objects.all()
