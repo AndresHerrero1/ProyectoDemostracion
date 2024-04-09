@@ -1,7 +1,7 @@
 Proyecto Demostración
 
 Se trata de una pequeña página para demostrar lo básico de mis habilidades de programación.
-La página funciona en base a django y utiliza plantillas de startbootstrap para la estructura HTML y CSS del sitio. Esta demostración consiste en una página de inicio en la cual se pueden seleccionar 4 demostraciones de ejercicios de Python que corresponden a bucles, llamamiento de apis y 
+La página funciona en base a django y utiliza plantillas de startbootstrap para la estructura HTML y CSS del sitio. Esta demostración consiste en una página de inicio en la cual se pueden seleccionar 4 demostraciones de ejercicios de Python que corresponden a bucles, llamamiento de apis y uso de aleatoriedad, siendo 4 views escritas en Python llamadas desde las páginas HTML. Además, el sitio tiene la posibilidad de registrar un usuario, pidiendo un nombre y una contraseña que se guardan en una base de datos, lo que da acceso a una página de venta de inmuebles de ejemplo en el que se puede publicar un anuncio de venta con campos para el nombre, la descripción, el precio, la imagen de la vivienda y un llamamiento de una api de mapas que permite ver donde se encuentra dicho inmueble. 
 
 Requirements: 
 django
